@@ -1,0 +1,81 @@
+.container {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.rectangle {
+    display: flex;
+    background: linear-gradient(180deg, #20BBFF 0%, #0E85FF 100%);
+    box-shadow: 0 8px 18px 10px rgba(0, 0, 0, 0.02);
+    height: 30rem;
+    width: 45%;
+    border-radius: 1.5rem;
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .rectangle {
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: auto;
+        width: auto;
+        border-radius: 0;
+
+    }
+
+    .left {
+        flex-basis: 0;
+        padding: 1rem;
+    }
+
+
+    .logo {
+        display: none;
+
+    }
+
+    .logoOne {
+        display: block;
+    }
+
+    .logoText {
+        display: none;
+    }
+
+    .heading {
+        display: none;
+    }
+
+
+    .tabs {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding-top: 2.4rem;
+        border-bottom: 1px solid #FFFFFF;
+    }
+
+    .mobileHeading {
+        text-decoration: none;
+        color: #FFFFFF;
+        font-family: "Open Sans";
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 27px;
+        text-transform: uppercase;
+    }
+
+    .formPage {
+        padding-top: 4rem;
+    }
+
+
+}

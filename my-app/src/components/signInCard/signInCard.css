@@ -1,0 +1,115 @@
+ .signInContainer {
+     display: flex;
+     flex-basis: 60%;
+     justify-content: center;
+     padding: 4rem 3rem 2.1rem 3rem;
+
+ }
+
+ .group {
+     display: flex;
+     flex-direction: column;
+     width: 70%;
+ }
+
+ .heading {
+     text-align: center;
+     color: #FFFFFF;
+     font-family: "Open Sans";
+     font-size: 20px;
+     font-weight: 600;
+     letter-spacing: 1.67px;
+     line-height: 2.7rem;
+     text-transform: uppercase;
+     padding-bottom: 2rem;
+ }
+
+ .tabs {
+     display: none;
+ }
+
+ .formPage {
+     align-items: center;
+     justify-content: center;
+
+ }
+
+
+ .pinField {
+     position: relative;
+     padding-top: 1.2rem;
+     padding-bottom: 1.6rem;
+
+ }
+
+ .signUpHeading {
+     text-align: left;
+     color: #FFFFFF;
+     font-family: "Open Sans";
+     font-size: 20px;
+     font-weight: 600;
+     letter-spacing: 1.67px;
+     line-height: 2.7rem;
+     text-transform: uppercase;
+     padding-bottom: 2rem;
+
+ }
+
+ .re_enter {
+     padding-top: 1.6rem;
+ }
+
+ .eye {
+     position: absolute;
+     top: 2rem;
+     right: 1rem;
+
+ }
+
+ .forgot {
+     color: #FFFFFF;
+     font-family: "Open Sans";
+     font-size: 14px;
+     font-weight: 600;
+     letter-spacing: 0;
+     line-height: 19px;
+     text-align: right;
+     padding-bottom: 2.5rem;
+ }
+
+
+ .btn {
+     border-radius: 4px;
+     background-color: #FFFFFF;
+     color: #0E85FF;
+     text-transform: uppercase;
+     font-family: "Open Sans";
+     font-size: 18px;
+     font-weight: 600;
+     letter-spacing: 1.2px;
+     line-height: 24px;
+     padding: 0.65rem 1.8rem;
+     outline: none;
+     border-style: none;
+ }
+
+ .dont_have_account {
+     color: #FFFFFF;
+     font-family: "Open Sans";
+     font-size: 14px;
+     font-weight: 600;
+     letter-spacing: 0;
+     line-height: 19px;
+     padding-top: 3rem;
+
+ }
+
+ .links {
+     text-decoration: none;
+     color: #FFFFFF;
+ }
+
+ .active {
+    
+     border-bottom: 3.5px solid #FFA222;
+ }

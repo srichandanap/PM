@@ -1,0 +1,19 @@
+.field {
+    box-sizing: border-box;
+    border: 0.55px solid rgba(208, 208, 208, 0.5);
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    padding: 1.1rem 1.5rem;
+    width: 100%;
+    outline: none;
+
+}
+
+input::placeholder {
+    color: #787E8C;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 2.2rem;
+}
