@@ -5,7 +5,7 @@ import "../../styles.css"
 function Input(props: any) {
     return (
         <>
-            <input className="field" required type={props.type} placeholder={props.placeholder} name={props.name} onChange={props.onChange} />
+            <input className="field" required type={props.type} name={props.name} placeholder={props.placeholder} onChange={props.onChange} />
         </>
     )
 }

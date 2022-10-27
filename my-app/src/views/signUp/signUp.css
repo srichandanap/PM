@@ -1,0 +1,110 @@
+
+@media only screen and (max-width: 1024px) {
+    .rectangle {
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: auto;
+        width: auto;
+        border-radius: 0;
+
+    }
+
+    .left {
+        flex-basis: 0;
+        padding: 1rem;
+    }
+
+
+    .logo {
+        display: none;
+
+    }
+
+    .logoOne {
+        display: block;
+    }
+
+    .logoText {
+        display: none;
+    }
+
+    .heading {
+        display: none;
+    }
+
+    .signInContainer{
+        padding: 0rem 2rem 2rem 3rem;
+    }
+
+
+    .tabs {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding-top: 0rem;
+        border-bottom: 0.5px solid #FFFFFF;
+    }
+
+    .mobileHeading {
+        text-decoration: none;
+        color: #FFFFFF;
+        font-family: "Open Sans";
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 27px;
+        text-transform: uppercase;
+    }
+
+    .formPage {
+        padding-top: 0rem;
+    }
+
+
+    .group{
+        width: 100%;
+    }
+
+    .forgot{
+        text-align: left;
+    }
+
+    .dont_have_account{
+        display: none;
+    }
+
+    .pinFiled{
+        padding-top: 2rem;
+    }
+    
+    .eye{
+        top: 2rem;
+    }
+
+    .formContainer{
+        padding-top: 3rem;
+    }
+
+}
+
+@media only screen and (max-width: 375px) {
+    .rectangle {
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: auto;
+        width: auto;
+        border-radius: 0;
+
+    }
+
+
+
+}

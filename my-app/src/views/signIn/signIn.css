@@ -53,12 +53,16 @@
         display: none;
     }
 
+    .signInContainer{
+        padding: 0rem 2rem 2rem 3rem;
+    }
+
 
     .tabs {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        padding-top: 2.4rem;
+        padding-top: 0rem;
         border-bottom: 1px solid #FFFFFF;
     }
 
@@ -74,8 +78,34 @@
     }
 
     .formPage {
-        padding-top: 4rem;
+        padding-top: 3rem;
     }
+
+
+    .group{
+        width: 100%;
+    }
+
+    .forgot{
+        text-align: left;
+    }
+
+    .dont_have_account{
+        display: none;
+    }
+
+    .pinFiled{
+        padding-top: 2rem;
+    }
+    
+    .eye{
+        top: 2rem;
+    }
+
+}
+
+@media only screen and (max-width: 375px) {
+   
 
 
 }

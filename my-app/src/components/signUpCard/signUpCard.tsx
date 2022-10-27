@@ -3,6 +3,8 @@ import "../signInCard/signInCard.css"
 import Input from '../Input/input'
 import eye from '../../assets/icons/eye_on.png'
 import "../../styles.css"
+import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 
 const SignUpCard = () => {
 
@@ -20,6 +22,14 @@ const SignUpCard = () => {
                 <div className="group">
                     <div className="signUpHeading">sign up </div>
                     <div className='formPage'>
+
+                    <div className="tabs">
+                        <div><NavLink to="/SignIn" className='mobileHeading'>
+                            sign in
+                        </NavLink></div>
+                        <div ><NavLink to="/SignUp" className='mobileHeading'> sign up</NavLink></div>
+
+                    </div>
 
                         <form className='formContainer'>
 

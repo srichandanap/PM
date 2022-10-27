@@ -1,0 +1,23 @@
+.topContainer {
+    position: fixed;
+    background-color: #F5F7FB;
+    left: 12.2rem;
+    padding: 1rem;
+    right: 5rem;
+
+}
+
+.imageMargin {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pass_logo .headIcon {
+    display: inline;
+
+}
+
+.pass_logo{
+
+    padding-left: 5rem;
+}

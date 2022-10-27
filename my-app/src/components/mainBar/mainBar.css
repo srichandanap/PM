@@ -1,0 +1,73 @@
+.mainBarContainer {
+    display: flex;
+    flex-direction: row;
+    padding-top: 13rem;
+    padding-left: 15rem;
+    justify-content: space-between;
+ 
+
+}
+
+.sites {
+
+    color: #3C4857;
+    font-family: "Open Sans";
+    font-size: 41px;
+    font-weight: 600;
+    letter-spacing: 3;
+    line-height: 41px;
+
+}
+
+.searchField {
+
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #0E85FF;
+    padding: 1rem;
+    width: 150%;
+}
+
+input::placeholder {
+    color: #A5A5A5;
+    font-family: "Open Sans";
+    font-size: 24px;
+    letter-spacing: 3;
+    line-height: 24px;
+}
+
+
+.searchBar{
+    
+    position: relative;
+    
+}
+
+.search{
+    position: absolute;
+    top: 0.5rem;
+    right: -8rem;
+    
+}
+
+.searchMargin{
+    display: flex;
+    flex-direction: row;
+ 
+}
+
+.add_btn {
+   padding-left: 10rem;
+
+}
+
+.socialMedia{
+    color: #3C4857;
+    font-family: "Open Sans";
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 33px;
+    padding-top: 10rem;
+    padding-left: 15rem;
+
+}
