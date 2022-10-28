@@ -2,7 +2,7 @@
      display: flex;
      flex-basis: 60%;
      justify-content: center;
-     padding: 4rem 3rem 2.1rem 3rem;
+
 
  }
 
@@ -21,6 +21,7 @@
      letter-spacing: 1.67px;
      line-height: 2.7rem;
      text-transform: uppercase;
+     padding-top: 2rem;
      padding-bottom: 2rem;
  }
 
@@ -43,6 +44,7 @@
  }
 
  .signUpHeading {
+     display: block;
      text-align: left;
      color: #FFFFFF;
      font-family: "Open Sans";
@@ -63,6 +65,7 @@
      position: absolute;
      top: 2rem;
      right: 1rem;
+     cursor: pointer;
 
  }
 
@@ -74,7 +77,8 @@
      letter-spacing: 0;
      line-height: 19px;
      text-align: right;
-     padding-bottom: 2.5rem;
+    
+     cursor: pointer;
  }
 
 
@@ -91,6 +95,8 @@
      padding: 0.65rem 1.8rem;
      outline: none;
      border-style: none;
+     cursor: pointer;
+     margin: 2rem 0rem;
  }
 
  .dont_have_account {
@@ -100,7 +106,7 @@
      font-weight: 600;
      letter-spacing: 0;
      line-height: 19px;
-     padding-top: 3rem;
+     
 
  }
 
@@ -110,10 +116,6 @@
  }
 
  .active {
-    
+
      border-bottom: 3.5px solid #FFA222;
- }
- 
- .signUpHeading{
-    display: none;
  }

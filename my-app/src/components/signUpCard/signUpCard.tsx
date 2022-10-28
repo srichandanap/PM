@@ -24,7 +24,7 @@ const SignUpCard = () => {
                     <div className='formPage'>
 
                     <div className="tabs">
-                        <div><NavLink to="/SignIn" className='mobileHeading'>
+                        <div><NavLink to="/" className='mobileHeading'>
                             sign in
                         </NavLink></div>
                         <div ><NavLink to="/SignUp" className='mobileHeading'> sign up</NavLink></div>
@@ -33,7 +33,7 @@ const SignUpCard = () => {
 
                         <form className='formContainer'>
 
-                            <Input placeholder='Enter Mobile Number' type='tel' />
+                            <Input placeholder='Enter Mobile Number' type='tel' maxLength={10} minLength={10} />
 
                             <div className="re_enter">
                                 <Input placeholder='Enter 4Digit MPin' type='password' />
@@ -46,8 +46,6 @@ const SignUpCard = () => {
 
 
                             <button type='button' className='btn'>sign up</button>
-
-
 
                         </form>
                     </div>
