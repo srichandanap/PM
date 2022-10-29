@@ -14,6 +14,13 @@ const MainBar = () => {
         <>
             <div className="mainBarContainer">
                 <div className="pageContainer">
+                    <div className="mobilePage">
+                        <div className="mobilesites"> Sites</div>
+                        <div className="mobilesocial">
+                            <div className="social_media_for_mobile">Social Media</div>
+                            <div className="mobileCount">07</div>
+                        </div>
+                    </div>
                     <div className="sites"> Sites</div>
                     <div className="searchMargin">
 

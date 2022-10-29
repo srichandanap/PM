@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
    */
-    padding-top: 13rem;
+    padding-top: 2rem;
     padding-left: 15rem;
 
 }
@@ -51,7 +51,7 @@ i
 
 .search {
     position: absolute;
-    top: 14rem;
+    top: 11.5rem;
     right: 10rem;
 }
 
@@ -81,6 +81,9 @@ i
     line-height: 36px;
     text-align: center;
 
+}
+.mobilePage{
+    display: none;
 }
 
 .add_sites {

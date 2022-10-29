@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import "./signInCard.css"
 import Input from '../Input/input'
 import eye from '../../assets/icons/eye_on.png'
 import "../../styles.css"
 import { Link } from 'react-router-dom';
-import { NavLink } from 'react-router-dom'
-import { eventNames } from 'process'
+import { NavLink } from 'react-router-dom';
 
 
 const SignInCard = () => {
@@ -17,11 +16,11 @@ const SignInCard = () => {
         setPasswordType(!passwordType);
 
     };
-
-    const signUpHandle = (event: any) => {
+    const handleSubmit = (event: any) =>{
         event.preventDefault();
-
-    }
+        console.log("clicked");
+        alert("hi");
+      }
 
 
     return (
@@ -38,7 +37,7 @@ const SignInCard = () => {
                     </div>
                     <div className='formPage'>
 
-                        <form className='formContainer' onSubmit={signUpHandle}>
+                        <form className='formContainer' onSubmit={handleSubmit}>
 
                             <Input placeholder='Mobile Number' type='tel' name='number' maxLength={10} minLength={10}/>
 
