@@ -4,6 +4,7 @@
     left: 12.2rem;
     padding: 1rem;
     right: 5rem;
+    z-index: 1;
 
 }
 
@@ -17,8 +18,7 @@
 
 }
 
-.pass_logo{
+.pass_logo {
 
     padding-left: 5rem;
 }
-

@@ -5,69 +5,56 @@ import eye from '../../assets/icons/eye_on.png'
 import "../../styles.css"
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const SignUpCard = () => {
 
     const [passwordType, setPasswordType] = useState<boolean>(false);
-    
+
     const togglePassword = () => {
-        
+
         setPasswordType(!passwordType);
-        
-    };
-    
-    const [input, setInput] = useState([{
-        number: "",
-        mpin: "",
-        newPin: ""
-    }])
-    const [oldUsers, setOldUsers] = useState([])
-    
-    const handleChange =(event: any) =>{
-        setInput((prevData: any) => ({
-            ...prevData, 
-            [event.target.name]:event.target.value,
-        }));
-    };
-    
-    const handleSubmit = (event: any) =>{
-      event.preventDefault();
-   console.log(input);
-    //   const oldUsers = JSON.parse(localStorage.getItem('u') || '[]');
-    
-    //   setOldUsers.push(input);
-    //   console.log(oldUsers);
 
-    
-    //  localStorage.setItem("users",JSON.stringify(oldUsers));
-      
+    };
+
+    const navigate = useNavigate();
+    const handleSubmit = (event: any) => {
+        event.preventDefault();
+
+        const number = event.target.number.value;
+        const mpin = event.target.mpin.value;
+        const newPin = event.target.newPin.value;
+
+        const newArr: any[] = [];
+        const oldUsers = JSON.parse(localStorage.getItem("users") || "[]");
+
+        const newUser = {
+            number,
+            mpin,
+            newPin
+        };
+
+        oldUsers.map((user: any) => {
+            if (newUser.number === user.number)
+                newArr.push("exist");
+        });
+        if (newArr.includes("exist")) {
+            alert("user already exits")
+        }
+        else if (number === "" && mpin === "" && newPin === "") {
+            alert("please enter all fields");
+        }
+        else if (mpin !== newPin) {
+            alert("pin not matched!");
+
+        }
+        else {
+            oldUsers.push(newUser);
+            localStorage.setItem("users", JSON.stringify(oldUsers));
+            localStorage.setItem(JSON.stringify(number), JSON.stringify([]));
+            navigate("/");
+        }
     }
-
-        // const [input, setInput] = useState({
-        //     number: "",
-        //     mpin: "",
-        //     newPin: ""    
-        //   });
-        //   const [newUser, setNewUser] = useState([]);
-
-        // //   type userData ={
-        // //     number: number
-        // //     mpin: string 
-        // //     newPin: string
-        // //   }
-        
-        //   const handleSubmit = (event: any) => {
-        //     event.preventDefault();
-        //     setNewUser((prevNewUser) => ({...prevNewUser, input}));
-        //     console.log(input);
-        //   };
-        
-        //   useEffect(() => {
-        //     // localStorage.setItem("users", JSON.stringify(newUser));
-        //               const array = JSON.parse(localStorage.getItem('users') || '[]');
-        //               array.push(newUser);
-        //               localStorage.setItem('Data', JSON.stringify(array));
-        //   }, [newUser]);
 
 
     return (
@@ -77,32 +64,26 @@ const SignUpCard = () => {
                     <div className="signUpHeading">sign up </div>
                     <div className='formPage'>
 
-                    <div className="tabs">
-                        <div><NavLink to="/" className='mobileHeading'>
-                            sign in
-                        </NavLink></div>
-                        <div ><NavLink to="/SignUp" className='mobileHeading'> sign up</NavLink></div>
+                        <div className="tabs">
+                            <div><NavLink to="/" className='mobileHeading'>
+                                sign in
+                            </NavLink></div>
+                            <div ><NavLink to="/SignUp" className='mobileHeading'> sign up</NavLink></div>
 
-                    </div>
+                        </div>
 
                         <form className='formContainer' onSubmit={handleSubmit}>
 
-                            <Input placeholder='Enter Mobile Number' type='tel' maxLength={10} minLength={10} name='number' value={input[0].number}  onChange={(event: any) =>
-            setInput(event.target.value)
-          } />
+                            <Input placeholder='Enter Mobile Number' type='tel' maxLength={10} minLength={10} name='number' />
 
                             <div className="re_enter">
-                                <Input placeholder='Enter 4Digit MPin' type='password' name='mpin'  value={input[0].mpin}  onChange={(event: any) =>
-            setInput(event.target.value)
-          }/>
+                                <Input placeholder='Enter 4Digit MPin' type='password' name='mpin' />
                             </div>
 
                             <div className="pinField">
-                                <Input placeholder='Re-Enter 4Digit MPin' type={passwordType ? "text" : "password"} name='newPin' value={input[0].newPin}  onChange={(event: any) =>
-            setInput(event.target.value)
-          } /> 
+                                <Input placeholder='Re-Enter 4Digit MPin' type={passwordType ? "text" : "password"} name='newPin' />
                                 <img className="eye" src={eye} alt="eye" onClick={togglePassword} />
-                        
+
                             </div>
 
 

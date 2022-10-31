@@ -5,6 +5,7 @@ import eye from '../../assets/icons/eye_on.png'
 import "../../styles.css"
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const SignInCard = () => {
@@ -16,11 +17,37 @@ const SignInCard = () => {
         setPasswordType(!passwordType);
 
     };
+    const navigate = useNavigate();
+    
     const handleSubmit = (event: any) =>{
         event.preventDefault();
-        console.log("clicked");
-        alert("hi");
-      }
+
+        
+        const number = event.target.number.value;
+        const mpin = event.target.mpin.value;
+
+        const userAcc = {
+                number,
+                mpin
+        };
+        const accounts = JSON.parse(localStorage.getItem("users") || "[]");
+        const newAcc: any[] = [];
+
+        accounts.map((user: any) => {
+            if(number === user.number)
+            newAcc.push("exist");
+        });
+
+        if(newAcc.includes("exist")){
+        localStorage.setItem("currentUser", JSON.stringify([number]));
+        navigate("/Home");
+    }
+        else{
+            alert("Account does not exist!");
+        }
+        
+        
+    }
 
 
     return (
@@ -47,7 +74,7 @@ const SignInCard = () => {
                                 <img className="eye" src={eye} alt="eye" onClick={togglePassword} />
                             </div>
 
-                            <div className="forgot"><NavLink to="/Home"> Forgot your password?</NavLink></div>
+                            <div className="forgot">Forgot your password ?</div>
 
                             <button className='btn'>sign in</button>
                             <div className="dont_have_account">Don't have a Account? <Link to="/SignUp" className='links'> SIGNUP</Link></div>
