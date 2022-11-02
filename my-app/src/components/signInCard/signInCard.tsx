@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 const SignInCard = () => {
 
     const [passwordType, setPasswordType] = useState<boolean>(false);
+    const [selected, setSelected] = useState("login");
 
     const togglePassword = () => {
 
@@ -56,10 +57,14 @@ const SignInCard = () => {
                 <div className="group">
                     <div className="heading">sign in to your account </div>
                     <div className="tabs">
-                        <div><NavLink to="/" className='mobileHeading'>
-                            sign in
-                        </NavLink></div>
-                        <div ><NavLink to="/SignUp" className='mobileHeading'> sign up</NavLink></div>
+                    <div className={selected === "login" ? "a" : ""}> <NavLink to="/" className='mobileHeading'>
+                                sign in
+                            </NavLink></div>
+                            <div className={selected === "signUp" ? "a" : ""}
+                            onClick={() => {
+                                setSelected("signUp");
+                              }}>
+                                <NavLink to="/SignUp"className='mobileHeading' > sign up</NavLink></div>
 
                     </div>
                     <div className='formPage'>

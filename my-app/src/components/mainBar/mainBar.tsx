@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import "./mainBar.css"
-import search from '../../assets/icons/search.png';
+import searchIcon from '../../assets/icons/search.png';
 import add_btn from '../../assets/icons/add_btn.png';
 import "../../../src/styles.css"
 import fb from '../../assets/icons/facebook.png';
 import copyBoook from '../../assets/images/copyBook.png';
 import close_btn from '../../assets/icons/close_btn.png';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { Icon } from '@fortawesome/fontawesome-svg-core';
 
 const MainBar = () => {
 
@@ -14,6 +16,8 @@ const MainBar = () => {
     const [modal, setmodal] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [open, setOpen] = useState(false);
+    const [search, setSearch] = useState("");
+
 
     const submitHandle = (event: any) => {
 
@@ -50,6 +54,13 @@ const MainBar = () => {
 
     console.log("sitedata", sitedata);
 
+
+    const getTerm = (e: any) => {
+        setSearch(e.target.value);
+    };
+
+
+
     return (
         <>
             <div className="mainBarContainer">
@@ -69,7 +80,7 @@ const MainBar = () => {
 
                         <div className="mobilesocial">
                             <div className="social_media_for_mobile">Social Media</div>
-                            <div className="mobileCount">07</div>
+                            <div className="mobileCount">{sitedata.length}</div>
                         </div>
                     </div>
                     <div className="site_box">
@@ -81,14 +92,14 @@ const MainBar = () => {
                     <div className="searchMargin">
 
                         <div className="searchBar">
-                            <input className='searchField' placeholder='Search' type='text' />
-                            <img className="search" src={search} alt="image" />
+                            <input className='searchField' placeholder='Search' type='text' onChange={getTerm} />
+                            <img className="search" src={searchIcon} alt="search image" />
                         </div>
 
                         <img className="add_btn" src={add_btn} alt="image" onClick={() => setIsOpen(true)} />
                     </div>
                 </div>
-                {modal ? (
+                {JSON.stringify(sitedata) === "[]" ? (
 
                     <div className="add_sites">
                         <div className="sitesText">
@@ -100,29 +111,54 @@ const MainBar = () => {
 
                         <div className="social">
                             <div className="social_media">  Social Media</div>
-                            <div className="count">07</div>
+                            <div className="count">{sitedata.length}</div>
                             {/* <div className="arrow"><i className="fa-solid fa-angle-down"></i></div> */}
                         </div>
 
+
                         <div className='siteCards'>
-                            {sitedata.map((user: any, i: any) => {
+
+                            {sitedata.filter((ele: any) => {
+                                return search.toLowerCase() === ""
+                                    ? ele
+                                    : ele.siteName.toLowerCase().includes(search.toLowerCase());
+                            }).map((user: any, i: any) => {
 
                                 return (
-
                                     <div key={i}>
-                                        <div className="cards" onClick={() => {setEdit(true);
-                                        setOpen(true);
+                                        <div className="cards" onClick={() => {
+                                            setEdit(true);
                                         }}>
                                             <div className="cardContent">
                                                 <div className="fb_img">
-                                                    <img className="fb_img" src={fb} alt="iamge" />
+                                                    {/* 
+                                                    {(() =>      {
+        switch (user.siteName) {
+          case 'facebook':
+            return <img className="fb_img" src={fb} alt="image" />
+          case 's':
+            return <img className="fb_img" src={add_btn} alt="imge" />
+          default:
+            return null
+        }
+    })()} */}
+
+                                                    <img src={`https://app.outboundsales.io/api/logo/${user.siteName}.com`} height="50px" width="50px" alt={user.siteName} style={{
+
+                                                        backgroundPosition: 'center',
+                                                        borderRadius: '50%',
+                                                        backgroundSize: 'cover'
+
+                                                    }} />
+
+                                                    {/* <img className="fb_img" src={fb} alt="iamge" /> */}
                                                 </div>
                                                 <div className="rightContent">
                                                     <div className="facebook">{user.siteName}</div>
 
                                                     <div className="copy_div" onClick={() => { navigator.clipboard.writeText(user.sitePassword) }} >
-                                                        <img className="copy_sym" src={copyBoook} alt="iamge" />
-                                                        <div className="copy">{user.sitePassword}</div>
+                                                        <img className="copy_sym" src={copyBoook} alt="image" />
+                                                        <div className="copy">Copy Password</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -133,7 +169,7 @@ const MainBar = () => {
                                     </div>
 
                                 )
-                            })};
+                            })}
                         </div>
 
                     </div>
@@ -142,6 +178,15 @@ const MainBar = () => {
 
                 {isOpen ? (
                     <div className="modal_blurr">
+
+                        <div className="add_site_mobile">
+
+                            <div className="i_tag">
+
+                                <FontAwesomeIcon icon={faArrowLeft} className='arrow_tag' onClick={() => setIsOpen(false)} />
+                            </div>
+                            <div className='add-site-div'>Add Site</div>
+                        </div>
 
                         <div className="modal mobile_modal">
 
@@ -152,55 +197,54 @@ const MainBar = () => {
                             <div className="add">
                                 Add Site
                             </div>
+
+
                             <form action="" onSubmit={submitHandle}>
 
-                                <label className='label'>URL</label>
-                                <input className='modal_field'></input>
+                                <label className='label  label_mobile'>URL</label>
+                                <input className='modal_field mobile_modal_field' name='url'></input>
 
-                                <div className="fir">
+                                <div className="fir fir_mobile">
 
                                     <div className="one">
 
-                                        <label className='label'>Site Name</label>
-                                        <input className='modal_field' name='siteName' />
+                                        <label className='label label_mobile'>Site Name</label>
+                                        <input className='modal_field mobile_modal_field' name='siteName' />
 
                                     </div>
 
                                     <div className="two">
 
-                                        <label className='label'>Sector/Folder</label>
-                                        <input className='modal_field' name='folder' />
+                                        <label className='label label_mobile'>Sector/Folder</label>
+                                        <input className='modal_field mobile_modal_field' name='folder' />
                                     </div>
 
                                 </div>
 
-                                <div className="sec">
+                                <div className="sec sec_mobile">
                                     <div className="one">
 
-                                        <label className='label'>User Name</label>
-                                        <input className='modal_field' name='userName' />
+                                        <label className='label label_mobile'>User Name</label>
+                                        <input className='modal_field mobile_modal_field' name='userName' />
 
                                     </div>
 
                                     <div className="two">
-                                        <label className='label'>Site Password</label>
-                                        <input className='modal_field' name='sitePassword' />
+                                        <label className='label label_mobile'>Site Password</label>
+                                        <input className='modal_field mobile_modal_field' name='sitePassword' />
 
                                     </div>
 
                                 </div>
 
-                                <label className='label'>Notes</label>
-                                <textarea className='notes' name='notes' />
+                                <label className='label label_mobile'>Notes</label>
+                                <textarea className='notes mobile_notes' name='notes' />
 
-                                <div className="btns">
+                                <div className="btns btns_mobile" >
                                     <button className="reset_btn" type='reset'>reset</button>
                                     <button className="save_btn" type='submit'>save</button>
-
                                 </div>
-
                             </form>
-
                         </div>
                     </div>
 
@@ -212,7 +256,7 @@ const MainBar = () => {
                         <div className="modal mobile_modal">
 
                             <div className="close_btn">
-                                <img src={close_btn} alt="image" onClick={() => setOpen(false)} />
+                                <img src={close_btn} alt="image" onClick={() => setEdit(false)} />
 
                             </div>
 
@@ -225,54 +269,54 @@ const MainBar = () => {
                                     </div>
                                     <div>
 
-                                    <button className="edit_btn" ><span className='ed'>Edit</span></button>
+                                        <button className="edit_btn" ><span className='ed'>Edit</span></button>
                                     </div>
                                 </div>
 
-                                <label className='label'>URL</label>
-                                <input className='edit_modal_field'></input>
+                                <label className='label label_edit_mobile'>URL</label>
+                                <input className='edit_modal_field mobile_edit_field'></input>
 
-                                <div className="fir">
+                                <div className="fir fir_mobile">
 
                                     <div className="one">
 
-                                        <label className='label'>Site Name</label>
-                                        <input className='edit_modal_field' name='siteName' />
+                                        <label className='label label_edit_mobile'>Site Name</label>
+                                        <input className='edit_modal_field mobile_edit_field' name='siteName' />
 
                                     </div>
 
                                     <div className="two">
 
-                                        <label className='label'>Sector/Folder</label>
-                                        <input className='edit_modal_field' name='folder' />
+                                        <label className='label label_edit_mobile'>Sector/Folder</label>
+                                        <input className='edit_modal_field mobile_edit_field' name='folder' />
                                     </div>
 
                                 </div>
 
-                                <div className="sec">
+                                <div className="sec sec_mobile">
                                     <div className="one">
 
-                                        <label className='label'>User Name</label>
-                                        <input className='edit_modal_field' name='userName' />
+                                        <label className='label label_edit_mobile'>User Name</label>
+                                        <input className='edit_modal_field mobile_edit_field' name='userName' />
 
                                     </div>
 
                                     <div className="two">
-                                        <label className='label'>Site Password</label>
-                                        <input className='edit_modal_field' name='sitePassword' />
+                                        <label className='label label_edit_mobile'>Site Password</label>
+                                        <input className='edit_modal_field mobile_edit_field' name='sitePassword' />
 
                                     </div>
 
                                 </div>
 
-                                <label className='label'>Notes</label>
-                                <textarea className='edit_notes' name='notes' />
+                                <label className='label label_edit_mobile'>Notes</label>
+                                <textarea className='edit_notes mobile_edit_notes' name='notes' />
 
                             </form>
 
                         </div>
                     </div>
-                ) : ""};
+                ) : ""}
             </div>
         </>
     )

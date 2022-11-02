@@ -77,7 +77,6 @@
     border-radius: 107.5px;
     background-color: #F5F7FB;
     padding: 5rem 1rem;
-    width: 45%;
     display: block;
     margin: auto;
 
@@ -119,8 +118,10 @@
     background-color: #0E85FF;
     display: flex;
     align-items: center;
-    padding: 7px;
+    /* padding: 7px; */
     color: #FFFFFF;
+    padding: 2px 13px;
+    font-size: 23px;
 
 }
 
@@ -201,19 +202,14 @@
 .modal {
     max-width: 50rem;
     max-height: 35rem;
-    /* box-sizing: border-box; */
     border: 1px solid #979797;
     border-radius: 10px;
     background-color: #FFFFFF;
     position: relative;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: center; */
     overflow: auto;
     z-index: 3;
-    /* top: 7rem; */
-    /* left: 25rem; */
     overflow: auto;
     padding: 0.75rem 2rem;
     z-index: 2;
@@ -225,8 +221,6 @@
     left: 6rem;
     right: 5rem;
     bottom: 0;
-    /* width: 100vw; */
-    /* height: 100vh; */
     background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
@@ -398,3 +392,30 @@
 /* .mobile_add_btn {
     display: none;
 } */
+
+
+
+
+/* .mobile_modal{
+    display: block;
+}
+
+.fir_mobile .sec_mobile{
+    display: none;
+}
+
+.mobile_modal_field{
+    display: none;
+}
+
+.label_mobile{
+    display: none;
+}
+
+.mobile_notes{
+    display: none;
+} */
+
+.add_mobile{
+    display: none;
+}
